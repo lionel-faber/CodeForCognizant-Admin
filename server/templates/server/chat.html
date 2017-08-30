@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>
+    Queries from teams
+  </title>
+</head>
+<body>
+  <ol>
+    {% for key, value in messages %}
+    <li>{{ value.messageText }}</li>
+    {% endfor %}
+  </ol>
+  <form action="{% url 'sendmessage' user %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="textmessage"/>
+    <input type="submit" value="Send"/>
+  </form>
+
+</body>
+</html>
